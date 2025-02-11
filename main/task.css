@@ -1,0 +1,972 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    font-family: 'Poppins',sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --body-color:#e9e7e7;
+    --sidebar-color:#a58865;
+    --primary-color:#74614f;
+    --primary-color-light:#f6f5ff;
+    --toggle-color:#ddd;
+    --text-color:#131313;
+    --widget-color:#FFFBF5;
+    --widget-text:#74614f;
+    --lead-background: #FFF5EA;
+    --lead-primary: #FF9F7E;
+    --lead-secondary: #FFD68A;
+    --lead-text: #333333;
+    --lead-text-light: #666666;
+    
+
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body{
+    height: 100vh;
+     background: var(--body-color);
+     transition: var(--tran-05);
+    position: relative;
+}
+body.dark{
+    --body-color:#18191a;
+    --sidebar-color:#242526;
+    --primary-color:#3a3b3c;
+    --primary-color-light:#3a3b3c;
+    --toggle-color:#ddd;
+    --text-color:#ccc;
+    --widget-color:#3a3b3c;
+    --widget-text:#ccc;
+}
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+.header-text .name{
+    font-weight: 900; 
+    font-size: 35px;
+    margin-left: 10px;
+    font-family: 'Facundo', sans-serif;
+    margin-top:-10px;
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar .text{
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close{
+    width: 88px;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+.sidebar li{
+    height: 60px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.sidebar li .icon{
+    font-size: 25px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar li .icon,.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .image-text .image .bx.bxl-react {
+    font-size: 60px;
+    color: var(--text-color);
+}
+body.darkmode .sidebar .image-text .image .bx.bxl-react {
+    color: var(--widget-color);
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top:50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition:  var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--text-color);
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    background: var(--);
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+.menu-bar .mode i{
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    
+    transition: var(--tran-05);
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+    
+}
+
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+.profile .circle-profile {
+    background: var(--body-color);
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image doesn't overflow the circle */
+    display: flex; /* Aligns child elements (like the image) properly */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+}
+
+.profile .circle-profile img {
+    height: 100%; /* Ensures the image height fills the circle */
+    width: 100%; /* Ensures the image width fills the circle */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio while covering the area */
+}
+.main .welcome{
+    margin-left:150px;
+    margin-top: 60px;
+    display: flex;
+    gap: 8px;
+    color: var(--text-color);
+}
+.welcome-bold{
+    font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 40px;
+  font-variation-settings:
+    "wdth" 100;
+}
+.welcome-light{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+      margin-top:5px;
+      font-size: 40px;
+}
+.welcome .wave{
+    height: 40px;
+    margin-top: 6px;
+    margin-left: 4px;
+}
+body.darkmode .welcome-bold,
+body.darkmode .welcome-light{
+    color: var(--)var(--widget-text);
+}
+.main .message{
+    margin-left:140px;
+    margin-top: 10px;
+}
+.motivation{
+    font-size: 15px;
+    font-family: "Poppins", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    color: #908E8D;
+}
+
+.quote {
+    font-size: 1.1rem;
+    color: #777;
+    text-align: center;
+    margin: 40px 0 40px; /* Add top margin to create space below the header */
+    
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    margin-left: 140px;
+  }
+  .card1 {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    
+  }
+  
+  .card-header {
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  #tasksChart {
+    width: 100%;
+    height: 300px;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+  }
+  
+  #progress {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+  }
+  
+  /* Task List */
+  .task-list {
+    grid-column: span 2;
+  }
+  
+  .task-list h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .task-list ul {
+    list-style-type: none;
+  }
+  
+  .task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .task-list input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .task-list .task-text {
+    flex-grow: 1;
+  }
+  
+  .task-list .task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task-list .delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .task-list .delete-btn:hover {
+    color: #c0392b;
+  }
+  
+  /* Optional: Add some spacing between the checkbox and text */
+  .task-list li > input[type="checkbox"] {
+    transform: scale(1.2);
+  }
+  
+  
+  
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  .button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+    border-radius: 20px; /* Make corners rounded */
+    overflow: hidden; /* Ensures child elements don’t overflow */
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button:hover {
+    background: #34974d;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active .button__icon {
+    background-color: #2e8644;
+  }
+  
+  .button:active {
+    border: 1px solid #2e8644;
+  }
+  .task-input-group {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+    gap: 10px; /* Space between the elements */
+  }
+  
+  .task-input-group input[type="text"] {
+    flex-grow: 2; /* Make the text input take more space */
+  }
+  
+  .task-input-group select {
+    flex-grow: 1; /* Adjust the width of the select dropdown */
+  }
+  
+  .task-input-group .button {
+    flex-grow: 0; /* The button should keep its original size */
+  }
+  /* From Uiverse.io by bociKond */ 
+  /* Hide the default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+    margin-right: 10px;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    --clr: #0B6E4F;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 300ms;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--clr);
+    border-radius: .5rem;
+    animation: pulse 500ms ease-in-out;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #E0E0E2;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 #0B6E4F90;
+      rotate: 20deg;
+    }
+  
+    50% {
+      rotate: -20deg;
+    }
+  
+    75% {
+      box-shadow: 0 0 0 10px #0B6E4F60;
+    }
+  
+    100% {
+      box-shadow: 0 0 0 13px #0B6E4F30;
+      rotate: 0;
+    }
+  }
+  .button1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .svgIcon {
+    width: 12px;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .button1:hover {
+    width: 140px;
+    border-radius: 50px;
+    background-color: rgb(255, 69, 69);
+  }
+  
+  .button1:hover .svgIcon {
+    width: 50px;
+    transform: translateY(60%);
+  }
+  
+  .button1::before {
+    position: absolute;
+    top: -20px;
+    content: "Delete";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+  }
+  
+  .button1:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  .input1 {
+    width: 100%;
+    max-width: 220px; /* Adjust based on your layout */
+    height: 45px; /* Consistent height */
+    padding: 12px; /* Space inside the input */
+    border-radius: 12px; /* Rounded corners */
+    border: 1.5px solid lightgrey; /* Light grey border */
+    outline: none; /* No outline on focus */
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth transition */
+    box-shadow: 0px 0px 20px -18px; /* Subtle shadow */
+  }
+  
+  .input1:hover {
+    border: 2px solid lightgrey; /* Slightly darker border on hover */
+    box-shadow: 0px 0px 20px -17px; /* Shadow effect on hover */
+  }
+  
+  .input1:active {
+    transform: scale(0.95); /* Scale down on click */
+  }
+  
+  .input1:focus {
+    border: 2px solid grey; /* Darker border on focus */
+  }
+  #subjectSelect {
+    width: 100%; /* Make it take full width */
+    padding: 12px; /* Padding for better spacing */
+    border-radius: 12px; /* Rounded corners */
+    border: 1.5px solid lightgrey; /* Border color */
+    background-color: white; /* Background color */
+    outline: none; /* Remove default outline */
+    appearance: none; /* Remove default arrow */
+    position: relative; /* Positioning for custom arrow */
+    box-shadow: 0px 0px 20px -18px; /* Add a shadow effect */
+  }
+  #subjectSelect::after {
+    content: '▼'; /* Custom arrow */
+    position: absolute; /* Position it on the right */
+    right: 15px; /* Space from the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust position */
+    pointer-events: none; /* Ignore clicks on the arrow */
+  }
+  #subjectSelect:focus {
+    border: 2px solid grey; /* Change border on focus */
+    box-shadow: 0 0 5px lightblue; /* Change shadow on focus */
+  }
+  /* Custom styles for the input box */
+  
+  .switch {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    margin-left: 140px;
+    
+    
+    
+  }
+  
+  .switch__input {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+  
+  .switch__label {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    background-color: #2B2B2B;
+    border: 5px solid #5B5B5B;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(.46,.03,.52,.96);
+  }
+  
+  .switch__indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateX(-72%);
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #7B7B7B;
+    border-radius: 9999px;
+    box-shadow: 10px 0px 0 0 rgba(#000000, 0.2) inset;
+  
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        background-color: #FFFFFF;
+        border-radius: 9999px;
+    }
+  
+    &::before {
+        top: 7px;
+        left: 7px;
+        width: 9px;
+        height: 9px;
+        background-color: #FFFFFF;
+        opacity: 0.6;
+    }
+  
+    &::after {
+        bottom: 8px;
+        right: 6px;
+        width: 14px;
+        height: 14px;
+        background-color: #FFFFFF;
+        opacity: 0.8;
+    }
+  }
+  
+  .switch__decoration {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: #FFFFFF;
+    border-radius: 9999px;
+    animation: twinkle 0.8s infinite -0.6s;
+  
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 5px;
+        height: 5px;
+        background-color: #FFFFFF;
+        border-radius: 9999px;
+    }
+  
+    &::before {
+        top: -20px;
+        left: 10px;
+        opacity: 1;
+        animation: twinkle 0.6s infinite;
+    }
+  
+    &::after {
+        top: -7px;
+        left: 30px;
+        animation: twinkle 0.6s infinite -0.2s;
+    }
+  }
+  
+  @keyframes twinkle {
+    50% { opacity: 0.2; }
+  }
+  
+  .switch__indicator {
+    &,
+    &::before,
+    &::after {
+        transition: all 0.4s cubic-bezier(.46,.03,.52,.96);
+    }
+  }
+  
+  .switch__input:checked + .switch__label {
+    background-color: #8FB5F5;
+    border-color: #347CF8;
+  
+    .switch__indicator {
+        background-color: #ECD21F;
+        box-shadow: none;
+        transform: translate(-50%, -50%) translateX(72%);
+  
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+  
+    .switch__decoration {
+        top: 50%;
+        transform: translate(0%, -50%);
+        animation: cloud 8s linear infinite;
+  
+        width: 20px;
+        height: 20px;
+  
+        &::before {
+            width: 10px;
+            height: 10px;
+            top: auto;
+            bottom: 0;
+            left: -8px;
+            animation: none;
+        }
+  
+        &::after {
+            width: 15px;
+            height: 15px;
+            top: auto;
+            bottom: 0;
+            left: 16px;
+            animation: none;
+        }
+  
+        &,
+        &::before,
+        &::after {
+            border-radius: 9999px 9999px 0 0;
+        }
+  
+        &::after {
+            border-bottom-right-radius: 9999px;
+        }
+    }
+  }
+  
+  @keyframes cloud {
+    0% {
+        transform: translate(0%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(0%, -50%);
+    }
+  }
+  body.dark-mode {
+    background-color: #1c1c1c;
+    color: #f5f5f5;
+  }
+  
+  body.dark-mode header {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+  }
+  
+  body.dark-mode .card {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    border: 1px solid #555;
+  }
+  
+  body.dark-mode nav ul li a {
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode nav ul li a:hover {
+    background-color: #333;
+    
+  }
+  
+  body.dark-mode .progress-bar {
+    background-color: #444;
+  }
+  
+  body.dark-mode #progress {
+    background-color: #3498db;
+  }
+  
+  body.dark-mode .task-list li {
+    background-color: #2a2a2a;
+    border-color: #555;
+  }
+  
+  body.dark-mode footer {
+    color: #999;
+  }
+  
+  body.dark-mode .input1, body.dark-mode #subjectSelect {
+    background-color: #333;
+    color: #f5f5f5;
+    border: 1.5px solid #555;
+  }
+  
+  body.dark-mode .logo img {
+    content: url('../login/image.png'); /* Switch to dark mode image */
+  }
+  
+  .profile-circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image doesn't overflow the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #AAB396;
+  }
+  
+  .profile-circle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  .icons-size{
+    color: #333;
+    font-size: 14px;
+  }
+ 
